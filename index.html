@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+	<title>DOGS IT | Random</title>
+	<meta name="description" content="Aplikacja internetowa - super pieski" />
+	<meta name="keywords" content="pies, psy. dog, dogs" />
+	<meta name="author" content="Luki" />
+	<meta name="copyright" content="Copyright DOGS IT 2023" />
+
+	<link rel="stylesheet" type="text/css" href="assets/styles/all.css">
+	<script src="https://kit.fontawesome.com/ac1b82ff7f.js" crossorigin="anonymous"></script>
+</head>
+
+
+	<body>
+		<section class="centerContainer">
+			<img src="#" id="dogImage"/>
+			<button id="dogHanger">ZMIEŃ</button>
+		</section>
+		
+		
+
+
+
+
+
+		<script>
+		
+			document.getElementById("dogHanger").addEventListener("click", function (event) {
+				dogHange();
+			});
+			
+			
+			function dogHange() {
+				fetch("https://dog.ceo/api/breeds/image/random")
+				.then(response => response.json())
+				.then(json => setDog(json))
+			};
+
+
+			function setDog(data){
+				document.getElementById("dogImage").src = data.message;
+			}
+
+		</script>
+		<script>
+			window.onload = function() {
+				dogHange();
+			};
+		</script>
+	</body>
+</html>
